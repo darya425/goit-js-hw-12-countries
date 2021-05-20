@@ -1,0 +1,56 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 50px;
+  font-family: sans-serif;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+input {
+  width: 600px;
+  margin-top: 20px;
+  padding: 10px;
+  font-family: inherit;
+  font-size: 20px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+
+span {
+  font-weight: bold;
+}
+
+.form {
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  justify-content: space-around;
+}
+
+.country-name {
+  margin-bottom: 50px;
+  font-size: 30px;
+  text-align: center;
+}
+
+.country-img {
+  width: 600px;
+}
+
+.country-list {
+  display: flex;
+  flex-direction: column;
+  margin: 30px 590px;
+
+  font-size: 30px;
+  font-weight: bold;
+}
