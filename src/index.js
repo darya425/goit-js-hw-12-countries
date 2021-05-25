@@ -21,7 +21,11 @@ function onSearchCountry(evt) {
     evt.preventDefault();
     clearContainer();
 
-    const searchQuery = evt.target.value;
+    const searchQuery = evt.target.value.trim();
+
+    if (searchQuery.trim() === '') {
+        return;
+    }
 
     fetchCountries(searchQuery)
         .then(countries => {
@@ -29,10 +33,12 @@ function onSearchCountry(evt) {
             
             if (countries.length === 1) {
                 renderCountryCard(countries);
+                inputRef.reset();
             }
 
-            if (countries.length > 1 && countries.length <= 10) {
+            if (countries.length >= 2 && countries.length <= 10) {
                 renderCountriesList(countries);
+                inputRef.reset();
             }
 
             if (countries.length > 10) {
@@ -46,12 +52,9 @@ function onSearchCountry(evt) {
 
 
 // create country card
-function getCountries(country) {
-     return country.map(countryCardTpl).join('');
-}
-
 function renderCountryCard(country) {
-    countryRef.insertAdjacentHTML('beforeend', getCountries(country));
+    const markup = countryCardTpl(country);
+    countryRef.innerHTML = markup;
 }
 
 // create country list
@@ -65,7 +68,6 @@ function clearContainer() {
 }
 
 // not found
-
 function showNotFound() {
     error({
         text:"No such country! Try again!",

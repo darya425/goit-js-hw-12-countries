@@ -4,12 +4,10 @@ export default function fetchCountries(searchQuery) {
 
     return fetch(SEARCH_FOR)
         .then(r => {
-            if (r.ok) { return r.json() }
-            else { throw new Error }
-        });
-
-    // return fetch(SEARCH_FOR)
-    //     .then(r => r.json());
+            if (r.ok) return r.json();
+            throw new Error('Error fetching data');
+        })
+        .catch(error => { console.error(error) });
  }
 
 
