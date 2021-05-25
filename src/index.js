@@ -38,7 +38,6 @@ function onSearchCountry(evt) {
 
             if (countries.length >= 2 && countries.length <= 10) {
                 renderCountriesList(countries);
-                inputRef.reset();
             }
 
             if (countries.length > 10) {
